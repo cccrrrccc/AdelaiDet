@@ -6,6 +6,7 @@ import os
 import time
 import cv2
 import tqdm
+import pickle
 
 from detectron2.data.detection_utils import read_image
 from detectron2.utils.logger import setup_logger
@@ -90,7 +91,9 @@ if __name__ == "__main__":
                     path, len(predictions["instances"]), time.time() - start_time
                 )
             )
-
+            pre_pickle_filename = os.path.join(args.output, 'img_prediction.pkl')
+            with open(pre_pickle_filename, 'wb') as f:
+                pickle.dump(predictions, f)
             if args.output:
                 if os.path.isdir(args.output):
                     assert os.path.isdir(args.output), args.output
