@@ -7,6 +7,7 @@ import time
 import cv2
 import tqdm
 import pickle
+import numpy as np
 
 from detectron2.data.detection_utils import read_image
 from detectron2.utils.logger import setup_logger
@@ -91,9 +92,16 @@ if __name__ == "__main__":
                     path, len(predictions["instances"]), time.time() - start_time
                 )
             )
-            pre_pickle_filename = os.path.join(args.output, 'img_prediction.pkl')
+            ###
+            pre_pickle_filename = os.path.join(args.output, 'img_prediction_mask.pkl')
             with open(pre_pickle_filename, 'wb') as f:
-                pickle.dump(predictions, f)
+                predictions_instances = predictions['instances'].to(torch.device('cpu'))
+                if predictions_instances.has('pred_masks'):
+                    masks = np.asarray(predictions_instances.pred_masks)
+                    pickle.dump(masks, f)
+                else:
+                    print("No available masks.")
+            ###
             if args.output:
                 if os.path.isdir(args.output):
                     assert os.path.isdir(args.output), args.output
