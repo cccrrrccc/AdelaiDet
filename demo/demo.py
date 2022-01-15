@@ -7,6 +7,7 @@ import time
 import cv2
 import tqdm
 import pickle
+import torch
 import numpy as np
 
 from detectron2.data.detection_utils import read_image
