@@ -7,8 +7,8 @@ if __name__ == "__main__":
     with open('/home/ruichen/AdelaiDet/test_images_seg_res/img_prediction_mask.pkl', 'rb') as handle:
         mask = pickle.load(handle)[0].tolist()
 
-    for i in range(0, len(mask[0])):
-        for j in range(0, len(mask[0][0])):
+    for i in range(0, len(mask)):
+        for j in range(0, len(mask[0])):
             if mask[i][j] == False:
                 img[i][j] = [0, 0, 0]
 
