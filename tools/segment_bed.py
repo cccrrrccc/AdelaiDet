@@ -10,7 +10,7 @@ if __name__ == "__main__":
     for i in range(0, len(mask)):
         for j in range(0, len(mask[0])):
             if mask[i][j] == False:
-                img[i][j] = [0, 0, 0]
+                img[i][j] = [255, 255, 255]
 
 
     #img_bg = cv2.bitwise_and(img, img, mask = mask)
