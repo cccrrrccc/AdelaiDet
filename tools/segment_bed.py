@@ -6,6 +6,12 @@ if __name__ == "__main__":
     img = cv2.imread('/home/ruichen/AdelaiDet/test_images/content000.jpg')
     with open('/home/ruichen/AdelaiDet/test_images_seg_res/img_prediction_mask.pkl', 'rb') as handle:
         mask = pickle.load(handle)[0]
-    print(len(mask))
-    img_bg = cv2.bitwise_and(img, img, mask = mask)
-    cv2.imwrite('test.jpg', img_bg)
+    
+    for i in range(0, len(mask[0])):
+        for j in range(0, len(mask[0][0])):
+            if mask[i][j] == False:
+                img[i][j] = [0, 0, 0]
+
+
+    #img_bg = cv2.bitwise_and(img, img, mask = mask)
+    cv2.imwrite('test.jpg', img)
