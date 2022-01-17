@@ -4,7 +4,7 @@ import pickle
 if __name__ == "__main__":
     # Read the image
     img1 = cv2.imread('/home/ruichen/AdelaiDet/test_images/test1.jpg')
-    img2 = cv2.imread('/home/ruichen/AdelaiDet/test_images/bed1.png')
+    img2 = cv2.imread('/home/ruichen/AdelaiDet/test_images/bed1.jpg')
     with open('/home/ruichen/AdelaiDet/test_images_seg_res/img_prediction_mask.pkl', 'rb') as handle:
         mask = pickle.load(handle)[0].tolist()
 
