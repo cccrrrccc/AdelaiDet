@@ -98,7 +98,7 @@ if __name__ == "__main__":
             pre_pickle_filename = os.path.join(args.output, 'img_prediction_mask.pkl')
             with open(pre_pickle_filename, 'wb') as f:
                 predictions_instances = predictions['instances'].to(torch.device('cpu'))
-                bed_instance = predictions_instances[instances.pred_classes == 59]
+                bed_instance = predictions_instances[predictions_instances.pred_classes == 59]
                 if bed_instance != None:
                     masks = np.asarray(bed_instance.pred_masks)
                     pickle.dump(masks, f)
