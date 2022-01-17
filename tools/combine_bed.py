@@ -3,8 +3,8 @@ import pickle
 
 if __name__ == "__main__":
     # Read the image
-    img1 = cv2.imread('/home/ruichen/AdelaiDet/test_images/content000.jpg')
-    img2 = cv2.imread('/home/ruichen/AdelaiDet/test_images/0_0.png')
+    img1 = cv2.imread('/home/ruichen/AdelaiDet/test_images/test1.jpg')
+    img2 = cv2.imread('/home/ruichen/AdelaiDet/test_images/bed1.png')
     with open('/home/ruichen/AdelaiDet/test_images_seg_res/img_prediction_mask.pkl', 'rb') as handle:
         mask = pickle.load(handle)[0].tolist()
 
@@ -15,4 +15,4 @@ if __name__ == "__main__":
 
 
     #img_bg = cv2.bitwise_and(img, img, mask = mask)
-    cv2.imwrite('/home/ruichen/AdelaiDet/seg_images/combine.jpg', img1)
+    cv2.imwrite('/home/ruichen/AdelaiDet/seg_images/combine1.jpg', img1)
