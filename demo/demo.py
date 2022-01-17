@@ -97,8 +97,12 @@ if __name__ == "__main__":
             pre_pickle_filename = os.path.join(args.output, 'img_prediction_mask.pkl')
             with open(pre_pickle_filename, 'wb') as f:
                 predictions_instances = predictions['instances'].to(torch.device('cpu'))
-                if predictions_instances.has('pred_masks'):
-                    masks = np.asarray(predictions_instances.pred_masks)
+                bed_instance = None
+                for instance in predictions_instances:
+                    if instance.pred_classes == 59:
+                        bed_instance = instance
+                if bed_instance != None:
+                    masks = np.asarray(bed_instance.pred_masks)
                     pickle.dump(masks, f)
                 else:
                     print("No available masks.")
