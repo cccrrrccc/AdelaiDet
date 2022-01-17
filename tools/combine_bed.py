@@ -10,7 +10,7 @@ if __name__ == "__main__":
 
     for i in range(0, len(mask)):
         for j in range(0, len(mask[0])):
-            if mask[i][j] == False:
+            if mask[i][j] == True:
                 img1[i][j] = img2[i][j]
 
 
