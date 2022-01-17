@@ -9,6 +9,7 @@ import tqdm
 import pickle
 import torch
 import numpy as np
+import detectron2.structures
 
 from detectron2.data.detection_utils import read_image
 from detectron2.utils.logger import setup_logger
