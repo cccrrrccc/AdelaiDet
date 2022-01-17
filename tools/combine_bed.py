@@ -15,4 +15,4 @@ if __name__ == "__main__":
 
 
     #img_bg = cv2.bitwise_and(img, img, mask = mask)
-    cv2.imwrite('combine.jpg', img1)
+    cv2.imwrite('/home/ruichen/AdelaiDet/seg_images/combine.jpg', img1)

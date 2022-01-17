@@ -14,4 +14,4 @@ if __name__ == "__main__":
 
 
     #img_bg = cv2.bitwise_and(img, img, mask = mask)
-    cv2.imwrite('test.jpg', img)
+    cv2.imwrite('/home/ruichen/AdelaiDet/seg_images/test.jpg', img)
